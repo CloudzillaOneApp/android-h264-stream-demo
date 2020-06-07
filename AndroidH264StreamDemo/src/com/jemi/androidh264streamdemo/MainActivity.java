@@ -40,8 +40,8 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Pr
 	private final static String SP_DEST_IP = "dest_ip";
 	private final static String SP_DEST_PORT = "dest_port";
 	
-	private final static int DEFAULT_FRAME_RATE = 15;
-	private final static int DEFAULT_BIT_RATE = 500000;
+	private final static int DEFAULT_FRAME_RATE = 30;
+	private final static int DEFAULT_BIT_RATE = 1000000;
 	
 	Camera camera;
 	SurfaceHolder previewHolder;	

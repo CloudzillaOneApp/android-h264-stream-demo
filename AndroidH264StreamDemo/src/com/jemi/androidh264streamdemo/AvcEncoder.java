@@ -13,7 +13,7 @@ public class AvcEncoder
 {
 	private final static String TAG = AvcEncoder.class.getSimpleName();
 	private final static String MIME_TYPE = "video/avc";
-	private final static int I_FRAME_INTERVAL = 1;
+	private final static int I_FRAME_INTERVAL = 5;
 	
     MediaCodec mediaCodec;  
     int width;  
@@ -82,6 +82,10 @@ public class AvcEncoder
         mediaFormat.setInteger(MediaFormat.KEY_COLOR_FORMAT, 
         		MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420SemiPlanar);      
         mediaFormat.setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, I_FRAME_INTERVAL);
+
+        // Baseline profile
+        mediaFormat.setInteger(MediaFormat.KEY_PROFILE, MediaCodecInfo.CodecProfileLevel.AVCProfileBaseline);
+        mediaFormat.setInteger(MediaFormat.KEY_LEVEL, MediaCodecInfo.CodecProfileLevel.AVCLevel13);
           
         mediaCodec.configure(mediaFormat, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE);  
         mediaCodec.start();  
